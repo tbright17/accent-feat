@@ -18,7 +18,7 @@ def gop_feat(gop_vals, textgrid_file):
     phn_seq = ""
     for intervals in textgrid.tiers[1]:
         if intervals.mark is not None:
-            if intervals.mark != 'SIL':
+            if intervals.mark != 'SIL' and intervals.mark != 'SPN':
                 phn_seq += " " + intervals.mark
 
     language = syllabifier.English
@@ -33,7 +33,7 @@ def gop_feat(gop_vals, textgrid_file):
 
         # vowels and consonants
         if intervals.mark is not None:
-            if intervals.mark != 'SIL':
+            if intervals.mark != 'SIL' and intervals.mark != 'SPN':
                 if intervals.mark in vowels:
                     vowel_gop.append(gop_vals[phn_idx])
                 elif intervals.mark in consonants:
@@ -45,7 +45,7 @@ def gop_feat(gop_vals, textgrid_file):
         if syllable_idx < len(syllables):
             current_syllable = syllables[syllable_idx][1] + syllables[syllable_idx][2] + syllables[syllable_idx][3]
             if intervals.mark is not None:
-                if intervals.mark != 'SIL':
+                if intervals.mark != 'SIL' and intervals.mark != 'SPN':
                     if intervals.mark in current_syllable:
                         syllable_phn_gop.append(gop_vals[phn_idx])
                     if intervals.mark == current_syllable[-1]:

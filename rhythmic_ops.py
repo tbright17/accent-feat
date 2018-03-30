@@ -43,7 +43,7 @@ def rhythmic_feat(tg_file, threshold = 0.8):
     phn_seq = ""
     for intervals in my_tg_file.tiers[1]:
         if intervals.mark is not None:
-            if intervals.mark != 'SIL':
+            if intervals.mark != 'SIL' and intervals.mark != 'SPN':
                 phn_seq += " " + intervals.mark
 
     language = syllabifier.English
@@ -57,7 +57,7 @@ def rhythmic_feat(tg_file, threshold = 0.8):
 
         # vowels and consonants
         if intervals.mark is not None:
-            if intervals.mark != 'SIL':
+            if intervals.mark != 'SIL' and intervals.mark != 'SPN':
                 if intervals.mark in vowels:
                     if intervals.maxTime - intervals.minTime < threshold:
                         vowel_interval.append(float(intervals.maxTime) - float(intervals.minTime))
@@ -73,7 +73,7 @@ def rhythmic_feat(tg_file, threshold = 0.8):
         if syllable_idx < len(syllables):
             current_syllable = syllables[syllable_idx][1] + syllables[syllable_idx][2] + syllables[syllable_idx][3]
             if intervals.mark is not None:
-                if intervals.mark != 'SIL':
+                if intervals.mark != 'SIL' and intervals.mark != 'SPN':
                     if intervals.mark in current_syllable:
                         if intervals.maxTime - intervals.minTime < threshold:
                             syllable_phn_dur.append(float(intervals.maxTime) - float(intervals.minTime))
