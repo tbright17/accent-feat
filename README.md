@@ -1,3 +1,5 @@
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 # accent-feat
 Python 2.X based feature extraction code for accented speech or pathological speech from forced alignment and Goodness of Pronunciation (GOP), including following features
 1. Minimum, mean, standard deviation and mean-normalizd standard deviation of GOP values of vowels, consonants and syllables
